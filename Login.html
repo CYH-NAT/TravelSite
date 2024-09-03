@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>登入界面</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        .cl::after{display: block;clear: both;height: 0;content: "";}
+        /* 去除li的樣式 */
+        li{list-style: none;}
+        .w1200{width: 1200px;margin: auto;}
+        .wrap{background: url(img/bg.jpg) no-repeat center;height: 640px;padding-top: 20px;box-sizing: border-box;}
+        .logo{width: 93px;height: 92px;background: url(img/logo-w.png);margin: auto;}
+        .ui{width: 380px;height: 380px;background-color: white;border-radius: 8px;margin: auto;margin-top: 23px;padding: 40px 0 0 39px;box-sizing: border-box;position: relative}
+        .cellphone{width: 300px;height: 40px;border: #cecece 1px solid;border-radius: 4px;line-height: 40px;font-size: 14px;color: #999;}
+        .pw{width: 300px;height: 40px;border: #cecece 1px solid;border-radius: 4px;line-height: 40px;font-size: 14px;color: #999;margin-top: 18px;}
+        .login{width: 300px;height: 40px;background-color: #5696ff;border-radius: 4px;line-height: 40px;font-size: 18px;color: white;text-align: center;margin-top: 15px;}
+        .note{font-size: 12px;margin-left: 250px;margin-top: 14px;color: #5696ff;text-decoration: none;}
+        .ui_line{width: 380px;height: 1px;background-color: #cecece;position: absolute;left: 0px;top: 249px;}
+        .ui_down{width: 226px;height: 91px;margin-top: 47px;}
+        .ui_down>p{font-size: 12px;color: #999;}
+        .oth_login{height: 61px;display: flex;flex-flow: row nowrap;justify-content: space-between;margin-top: 17px;}
+        .way{width: 48px;height: 60px;display: flex;flex-flow: column nowrap;justify-content: space-between;align-items:center;}
+        .way>p{font-size: 12px;color: #999;}
+        .sina{width: 35px;height: 35px;background: url(img/sina.png);}
+        .QQ{width: 35px;height: 35px;background: url(img/QQ.png);}
+        .weixin{width: 35px;height: 35px;background: url(img/weixin.png);}
+        .login_now{width: 160px;height: 26px;background-color: rgba(0, 0, 0, 0.2);border-radius: 8px;margin: auto;text-align: center;line-height: 26px;font-size: 12px;margin-top: 18px;}
+        .login_now>span{color:white;}
+        .login_now>a{color:#5696ff;text-decoration: none;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="logo"></div>
+        <div class="ui">
+            <div class="ui_up">
+                <input type="text" placeholder="    您的郵箱/手機號碼" class="cellphone">
+                <input type="password" placeholder="    您的密碼" class="pw">
+                <div class="note">
+                    <a href="#" class="forget">忘記密碼</a>
+                </div>
+                <div class="login">登入</div>
+            </div>
+            <div class="ui_line"></div>
+            <div class="ui_down">
+                <p>用合作網站帳戶直接登入</p>
+                <div class="oth_login">
+                    <div class="way">
+                        <div class="sina"></div>
+                        <p>新浪微博</p>
+                    </div>
+                    <div class="way">
+                        <div class="QQ"></div>
+                        <p>QQ</p>
+                    </div>
+                    <div class="way">
+                        <div class="weixin"></div>
+                        <p>微信</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="login_now">
+            <span>還沒有帳號?</span><a href="#">馬上註冊</a>
+        </div>
+    </div>
+</body>
+</html>

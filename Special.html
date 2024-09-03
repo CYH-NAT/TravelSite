@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>悠遊旅遊網-特惠</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        /* 去除li的樣式 */
+        li{list-style: none;}
+        .w1200{width: 1200px;margin: auto;}
+        .head{
+            color: #3c3d46;
+            font-size: 18px;}
+        .nav>li{float: left;
+            width: 80px;
+            height: 72px;
+            line-height: 72px; /* 讓行高等同li的大小，就會變成垂直置中 */
+            text-align: center; /* 字體對齊選擇水平置中 */
+            margin-right: 24px;
+        }
+        .logo{margin-top: 7px;} /* 讓logo往下降 */
+        .logo img{vertical-align: middle;} /* 讓圖片置中對齊 */
+        .user{line-height: 72px;}
+        .home{margin-left: 159px;}
+        .discount{background-color: #5696ff;}
+        .tool{height: 41px;background-color: #535353;border:#dcdcdc 1px solid;padding-top: 19px;}
+        .vertical-line{width: 1px;height: 20px;background-color: #f3f1f1;}
+        .head2 .search_icon{width: 102px;}
+        .head2 .oth_icon{width: 302px;}
+        .s_icon{width: 22px;height: 22px;background: url(img/search_icon2.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .h_icon{width: 22px;height: 22px;background: url(img/history_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .r_icon{width: 22px;height: 22px;background: url(img/review_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .p_icon{width: 22px;height: 22px;background: url(img/personal_icon.png) no-repeat center;margin-left: 41px;}
+        /* 橫幅 */
+        .banner{background: url(img/banner-discount.jpg) no-repeat center;width: 172px;height: 73px;margin-top: 55px;padding-top: 277px;padding-left: 1028px;}
+        .input{width:140px;border-radius: 4px;} /* 當子集的浮動都是並排向左時，寬度可以不必定義，但為求嚴謹 */
+        .input_box{width:110px;height: 30px;background-color: #f3f3f3;border-radius: 4px 0 0 4px;border: #f3f3f3 0px solid;}
+        .search_blue_button{width: 30px;height: 30px;background: url(img/search_icon_inblue.png) no-repeat center;background-color: #5696ff;border-radius: 0 4px 4px 0;}
+        .reservation{margin-top: 62px;}
+        /*  */
+        .main{width: 860px}
+        .content{height: 208px;}
+        .describe{width: 512px;position: relative;}
+        .selled{color: #5696ff;font-size: 14px;}
+        .description{color: #333;font-size: 22px;line-height: 30px;}
+        .schedule{color: #666;font-size: 16px;line-height: 52px;}
+        .price{color: #eb4c4d;font-size: 36px;line-height: 60px;}
+        .reserve_button{width: 140px;height: 50px;color: #5696ff;text-align: center;line-height: 50px;border: #5696ff 1px solid;font-size: 22px;position: absolute;right: 0;bottom: 14px;}
+        .rsv_line{width: 804px;height: 1px;background-color: #e9e9e9;margin-top: 49px;margin-bottom: 49px;}
+        /* 換頁標籤 */
+        
+        /* 右側部份 */
+        .hotsale{width: 279px;}
+        .hot_tittle{height: 48px;border: #5696ff 1px solid;font-size: 16px;line-height: 48px;text-align: center;color: #282828;}
+        .hot_list{margin-top: 35px;}
+        .description_small{width: 171px;}
+        .hot_describe{color: #333;font-size: 13px;margin-bottom: 16px;}
+        .hot_price{color: #eb4c4d;font-size: 14px;}
+        .hot_line{background-color: #e3e3e3;width: 277px;height: 1px;margin-top: 20px;margin-bottom: 20px;}
+        .page li{width: 18px;color: #666;font-size: 18px;line-height: 59px;text-align: center;float: left;margin:0 16px}
+        .pre,.nxt{width: 198px !important;color: #333 !important;border: #dcdcdc 1px solid;margin:0 !important}
+        .endding{background-color: #5696ff}
+        .license{width: 651px;height: 102px;margin: auto;font-size: 16px;color: #fafafc;text-align: left;line-height: 35px;padding-top: 28px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 頭部導航 -->
+        <div class="head w1200">
+            <div class="logo fl">
+                <img src="img/logo.png">
+                <img src="img/brand.png">
+            </div>
+            <ul class="nav fl">
+                <li class="home">首頁</li>
+                <li>地區</li>
+                <li class="discount" style="color: white;">特惠</li>
+                <li>資訊</li>
+                <li>遊記</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="user fr"> <!-- 不想算margin float -->
+                <span>登入</span>
+                <span> | </span>
+                <span>註冊</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 工具列 -->
+        <div class="tool">
+            <div class="head2 w1200">
+                <div class="search_icon fl">
+                    <div class="vertical-line fl"></div>
+                    <div class="s_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="oth_icon fr">
+                    <div class="vertical-line fl"></div>
+                    <div class="h_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="r_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="p_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 橫幅 -->
+        <div class="banner w1200">
+            <div class="input">
+                <input placeholder="請輸入目的地" class="input_box fl">
+                <div class="search_blue_button fl"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 預定部份 -->
+        <div class="w1200 reservation">
+            <div class="main fl">
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/tai.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售150</a>
+                            <p class="description">
+                                【潑水節預售】廣州直飛泰國曼谷+芭提雅+沙美島6天5晚跟團遊（全程無自費+全程5星酒店+沙美島出海+國際人妖秀+送意外險）
+                            </p>
+                            <p class="schedule">班期：清明五一03/30-06/30</p>
+                            <p class="price">￥2099起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/tai2.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售108</a>
+                            <p class="description">
+                                廣州直飛普吉島6天4/5天4晚晚精緻遊（無自費+指定4晚網評國際五星酒店+贈送流量卡+大堡礁浮潛+藍鑽珊瑚島+泰式風情人妖秀）
+                            </p>
+                            <p class="schedule">班期：清明五一03/21-06/28</p>
+                            <p class="price">￥2899起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/turkey.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售150</a>
+                            <p class="description">
+                                【全景游】廣州直飛土耳其12天（女神節贈送玫瑰水+五星酒店·泡溫泉+番紅花城特色民居+雙海尋夢愛琴海+外星美景卡帕多奇亞）
+                            </p>
+                            <p class="schedule">班期：清明五一03/30-05/30</p>
+                            <p class="price">￥5999起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/jp.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售89</a>
+                            <p class="description">
+                                【櫻花預售】廣州直飛大阪+東京+京都+名古屋+富士山6天5晚品質遊（拒簽全退+河口湖櫻花祭+升級1晚溫泉酒店+日式酒店料理+浴衣體驗）
+                            </p>
+                            <p class="schedule">班期：清明五一04/03-05/31</p>
+                            <p class="price">￥4280起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/viet.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售77</a>
+                            <p class="description">
+                                廣州直飛越柬6天5晚遊/柬埔寨一地5天4晚經典文化美食之旅（大小吳哥窟+高棉的微笑+金邊皇宮+巴肯山日落+贈送柬埔寨特色紀念品）
+                            </p>
+                            <p class="schedule">班期：清明五一暑假04/03-07/28</p>
+                            <p class="price">￥3888起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <div class="wrap_big">
+                    <div class="content">
+                        <div class="pic_big fl">
+                            <img src="img/halbin.jpg" alt="">
+                        </div>
+                        <div class="describe fr">
+                            <a href="" class="selled">已售205</a>
+                            <p class="description">
+                                【一價全含】廣州飛哈爾濱+亞布力+雪鄉+民俗村6/7天5晚跟團遊（百人銷量+全程不帶錢包+0購物0自費+天天特色餐+4星5星住宿）
+                            </p>
+                            <p class="schedule">班期：清明五一03/22-03/31</p>
+                            <p class="price">￥3980起</p>
+                            <div class="reserve_button">立即預定</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="rsv_line"></div>
+                </div>
+                <ul class="page" style="margin-top: 79px;">
+                    <li class="pre"><上一頁</li>
+                    <li>1</li>
+                    <li style="color: #5696ff;">2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>...</li>
+                    <li>30</li>
+                    <li class="nxt" style="float: right;"><下一頁</li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="hotsale fr">
+                <div class="hot_tittle">本週熱賣</div>
+                <div class="hot_list">
+                    <div class="wrap_s">
+                        <div class="hot">
+                            <div class="pic_small fl">
+                                <img src="img/puji.jpg" alt="">
+                            </div>
+                            <div class="description_small fr">
+                                <p class="hot_describe">上海直飛普吉島5-6天自由行（3套航班任意選擇+可選...</p>
+                                <p class="hot_price">￥1899起</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hot_line"></div>
+                    </div>
+                    <div class="wrap_s">
+                        <div class="hot">
+                            <div class="pic_small fl">
+                                <img src="img/hk.jpg" alt="">
+                            </div>
+                            <div class="description_small fr">
+                                <p class="hot_describe">上海直飛香港3-4天自由行（地鐵商圈附近酒店+航班...</p>
+                                <p class="hot_price">￥1220起</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hot_line"></div>
+                    </div>
+                    <div class="wrap_s">
+                        <div class="hot">
+                            <div class="pic_small fl">
+                                <img src="img/jiami.jpg" alt="">
+                            </div>
+                            <div class="description_small fr">
+                                <p class="hot_describe">上海直飛甲米6-7天自由行（預售至5月+可選帶無邊泳...</p>
+                                <p class="hot_price">￥1999起</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hot_line"></div>
+                    </div>
+                    <div class="wrap_s">
+                        <div class="hot">
+                            <div class="pic_small fl">
+                                <img src="img/ChiangMai.jpg" alt="">
+                            </div>
+                            <div class="description_small fr">
+                                <p class="hot_describe">上海直飛清邁5-6天自由行（潑水節預售+古城/甯曼路...</p>
+                                <p class="hot_price">￥1899起</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hot_line"></div>
+                    </div>
+                    <div class="wrap_s">
+                        <div class="hot">
+                            <div class="pic_small fl">
+                                <img src="img/samui.jpg" alt="">
+                            </div>
+                            <div class="description_small fr">
+                                <p class="hot_describe">全國往返蘇梅島5-7天自由行（Code海景無邊泳池+無...</p>
+                                <p class="hot_price">￥3299起</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="hot_line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- ending -->
+        <div class="endding" style="margin-top: 75px;">
+            <div class="license">
+                <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证123456号</p>
+                <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

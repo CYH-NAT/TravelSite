@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>地區部分</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        body{background-color: #f3f3f3;}
+        .cl::after{display: block;clear: both;height: 0;content: "";}
+        /* 去除li的樣式 */
+        li{list-style: none;}
+        .w1200{width: 1200px;margin: auto;}
+        .head{
+            color: #3c3d46;
+            font-size: 18px;}
+        .nav>li{float: left;
+            width: 80px;
+            height: 72px;
+            line-height: 72px; /* 讓行高等同li的大小，就會變成垂直置中 */
+            text-align: center; /* 字體對齊選擇水平置中 */
+            margin-right: 24px;
+        }
+        .logo{margin-top: 7px;} /* 讓logo往下降 */
+        .logo img{vertical-align: middle;} /* 讓圖片置中對齊 */
+        .user{line-height: 72px;}
+        .home{margin-left: 159px;}
+        .area{background-color: #5696ff;}
+        .tool{height: 41px;background-color: #535353;border:#dcdcdc 1px solid;padding-top: 19px;}
+        .vertical-line{width: 1px;height: 20px;background-color: #f3f1f1;}
+        .head2 .search_icon{width: 102px;}
+        .head2 .oth_icon{width: 302px;}
+        .s_icon{width: 22px;height: 22px;background: url(img/search_icon2.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .h_icon{width: 22px;height: 22px;background: url(img/history_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .r_icon{width: 22px;height: 22px;background: url(img/review_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .p_icon{width: 22px;height: 22px;background: url(img/personal_icon.png) no-repeat center;margin-left: 41px;}
+        /* 橫幅 */
+        .banner{display: flex;flex-flow: row nowrap;justify-content: space-between;}
+        .banner-pic{width: 970px;height: 560px;background: url(img/banner-location.jpg);position: relative;}
+        .sel_box{width: 160px;
+            height: 560px;
+            background-color: #666;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            padding: 36px 0;  /* 定義上下邊界36 左右0 */
+            box-sizing: border-box;
+            align-items: center}
+        .switch{width: 77px;
+            height:16px;
+            position: absolute;
+            right: 30px;
+            bottom: 23px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+        .circle{width: 16px;height: 16px;border: #fcfcfd 2px solid;border-radius: 8px;box-sizing: border-box;} /* box-sizing讓邊界也算在盒子範圍 */
+        .circle2{width: 16px;height: 16px;background-color: #fcfcfd;border-radius: 8px;}
+        .sel_box p{font-size: 24px;color: white;}
+        .sel_line{width: 70px;height: 1px;background-color: #fefefe;}
+        /* 熱門推薦 */
+        .recommon>p {font-size: 24px;color: #333;}
+        .download{height: 474px;
+            background-color: white;
+            border: #dcdcdc 1px solid;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            padding: 46px 28px 46px 28px;
+            box-sizing: border-box;
+        }
+        .frame{width:200px;
+            height: 380px;
+            display: flex;
+            flex-flow: column nowrap; /* 定義主軸為縱向 */
+            justify-content: space-between;} /* jusitfy為主軸的間距 */
+        .frame>.pic{width: 184px;
+            height: 258px;
+            border: #ffffff 11px solid;
+            border-left-width: 8px;
+            border-right-width: 8px;
+            box-shadow:0 0 6px 1px #bcb9b9;}
+        .frame>.title{font-size: 20px;color: #5696ff;}
+        .frame>.dl_button{width: 200px;height: 40px;font-size: 18px;color: white;line-height: 40px;text-align: center;border-radius: 4px;background-color: #5696ff;}
+        /* 最新下載 */
+        .lastDL>p{font-size: 18px;line-height: 35px;color: #333;}
+        .dl_user{line-height: 37px;}
+        .user_list{width: 354px;height: 460px;display: flex;flex-flow: column nowrap;justify-content: space-between;margin-top: 19px;}
+        .new{margin-left: 12px;font-size: 16px;}
+        .new{color: #666}
+        .guide_name{color: #5696ff;}
+        .announce{width: 350px;height: 200px;background: url(img/collect.jpg);margin-top: 37px;}
+        /* 所有地區 */
+        .all_area{width: 812px;height: 1200px;}
+        .all_area>p{font-size: 24px;color: #333;margin-bottom: 22px;}
+        .sub_tit{width: 192px;height: 18px;display: flex;flex-flow: row nowrap;justify-content: space-between;}
+        .area_frame{width: 814px;height: 978px;margin-top: 20px;display: flex;flex-flow: row wrap;justify-content: space-between;align-content: space-between;}
+        .location_frame{width: 192px}
+        .location_frame .pic{width: 192px;height: 264px;}
+        .location_frame .location{font-size: 17.88px;color: #5696ff;}
+        .location_frame .update{font-size: 16px;color: #666;margin-left: 2px;}
+        .page{display: flex;flex-flow: row nowrap;justify-content: space-between;}
+        .page li{width: 1em;color: #666;font-size: 18px;line-height: 59px;text-align: center;}
+        .pre,.nxt{width: 198px !important;color: #333 !important;border: #dcdcdc 1px solid;margin:0 !important}
+        /* 頁尾部份 */
+        .endding{background-color: #5696ff}
+        .license{width: 651px;height: 102px;margin: auto;font-size: 16px;color: #fafafc;text-align: left;line-height: 35px;padding-top: 28px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 頭部導航 -->
+        <div class="head w1200">
+            <div class="logo fl">
+                <img src="img/logo.png">
+                <img src="img/brand.png">
+            </div>
+            <ul class="nav fl">
+                <li class="home">首頁</li>
+                <li class="area" style="color: white;">地區</li>
+                <li class="discount" >特惠</li>
+                <li>資訊</li>
+                <li>遊記</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="user fr"> <!-- 不想算margin float -->
+                <span>登入</span>
+                <span> | </span>
+                <span>註冊</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 工具列 -->
+        <div class="tool">
+            <div class="head2 w1200">
+                <div class="search_icon fl">
+                    <div class="vertical-line fl"></div>
+                    <div class="s_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="oth_icon fr">
+                    <div class="vertical-line fl"></div>
+                    <div class="h_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="r_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="p_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 橫幅 -->
+        <div class="banner w1200" style="margin-top: 55px;">
+            <div class="banner-pic">
+                <div class="switch">
+                    <div class="circle"></div>
+                    <div class="circle2"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="sel_box">
+                <p>亞洲</p>
+                <div class="sel_line"></div>
+                <p>歐洲</p>
+                <div class="sel_line"></div>
+                <p>北美洲</p>
+                <div class="sel_line"></div>
+                <p>南洋洲</p>
+                <div class="sel_line"></div>
+                <p>大洋洲</p>
+                <div class="sel_line"></div>
+                <p>非洲</p>
+                <div class="sel_line"></div>
+                <p>南極洲</p>
+                <div class="sel_line"></div>
+                <p>中國</p>
+
+            </div>
+        </div>
+        <!-- 熱門推薦 -->
+        <div class="recommon w1200" style="margin-top: 53px;">
+            <p>熱門推薦</p>
+            <div class="download">
+                <div class="frame">
+                    <div class="pic" style="background: url(img/jp-l.jpg);"></div>
+                    <p class="title">日本櫻花</p>
+                    <div class="dl_button">下載閱讀</div>
+                </div>
+                <div class="frame">
+                    <div class="pic" style="background: url(img/ger.jpg);"></div>
+                    <p class="title">德國新天鵝堡</p>
+                    <div class="dl_button">下載閱讀</div>
+                </div>
+                <div class="frame">
+                    <div class="pic" style="background: url(img/rus.jpg);"></div>
+                    <p class="title">俄羅斯貝加爾湖</p>
+                    <div class="dl_button">下載閱讀</div>
+                </div>
+                <div class="frame">
+                    <div class="pic" style="background: url(img/newz.jpg);"></div>
+                    <p class="title">紐西蘭蒂阿瑙</p>
+                    <div class="dl_button">下載閱讀</div>
+                </div>
+                <div class="frame">
+                    <div class="pic" style="background: url(img/melb.jpg);"></div>
+                    <p class="title">墨爾本菲滋羅花園</p>
+                    <div class="dl_button">下載閱讀</div>
+                </div>
+            </div>
+        </div>
+        <!-- 指南 -->
+        <div class="guide w1200 cl" style="margin-top: 54px;">
+            <div class="lastDL fl">
+                <p>他們剛剛下載了地區指南</p>
+                <div class="user_list">
+                    <div class="dl_user cl">
+                        <img src="img/user1.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">意大利建築</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user2.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">悉尼</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user3.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">日本東北</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user4.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">佛羅倫</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user5.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">檳城</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user6.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>剛剛</span><span>下載了</span><span class="guide_name">斑夫與甲斯伯國家公園</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user7.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>1分鐘前</span><span>下載了</span><span class="guide_name">米蘭</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user8.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>1分鐘前</span><span>下載了</span><span class="guide_name">新加坡</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user9.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>1分鐘前</span><span>下載了</span><span class="guide_name">博洛尼亞</span><span>地區指南</span>
+                        </div>
+                    </div>
+                    <div class="dl_user cl">
+                        <img src="img/user10.png" class="user_pic fl">
+                        <div class="new fl">
+                            <span>1分鐘前</span><span>下載了</span><span class="guide_name">義大利國家概念</span><span>地區指南</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="announce"></div>
+            </div>
+            <div class="all_area fr">
+                <p>全部地區指南</p>
+                <div class="sub_tit">
+                    <p style="font-size: 18px;color: #333;">按更新時間</p><p>|</p><p style="font-size: 18px;color: #5696ff">按下載量</p>
+                </div>
+                <div class="area_frame">
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/sydney.jpg)"></div>
+                        <p class="location">雪梨歌劇院</p>
+                        <p class="update">2018-02-01更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/singapore.jpg)"></div>
+                        <p class="location">新加坡聖淘沙</p>
+                        <p class="update">2018-01-31更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/milan.jpg)"></div>
+                        <p class="location">米蘭大教堂</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/italian.jpg)"></div>
+                        <p class="location">義大利宮殿</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/bali.jpg)"></div>
+                        <p class="location">印度尼西亞峇厘島</p>
+                        <p class="update">2018-02-01更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/hangzhou.jpg)"></div>
+                        <p class="location">中國杭州</p>
+                        <p class="update">2018-01-31更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/copenhagen.jpg)"></div>
+                        <p class="location">丹麥哥本哈根</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/phuket.jpg)"></div>
+                        <p class="location">泰國普吉島</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/volcanic.jpg)"></div>
+                        <p class="location">美國火山島</p>
+                        <p class="update">2018-02-01更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/windmill.jpg)"></div>
+                        <p class="location">荷蘭風車</p>
+                        <p class="update">2018-01-31更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/eiffel.jpg)"></div>
+                        <p class="location">法國艾菲爾鐵塔</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                    <div class="location_frame">
+                        <div class="pic" style="background: url(img/egyptian.jpg)"></div>
+                        <p class="location">埃及金字塔</p>
+                        <p class="update">2018-01-30更新</p>
+                    </div>
+                </div>
+                <ul class="page" style="margin-top: 79px;">
+                    <li class="pre"><上一頁</li>
+                    <li>1</li>
+                    <li style="color: #5696ff;">2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>...</li>
+                    <li>17</li>
+                    <li class="nxt"><下一頁</li>
+                </ul>
+            </div>
+        </div>
+        <!-- ending -->
+        <div class="endding" style="margin-top: 75px;">
+            <div class="license">
+                <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证123456号</p>
+                <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

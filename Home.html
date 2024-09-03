@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>悠遊旅遊網-首頁</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        body{background-color: #f3f3f3;}
+        /* 去除li的樣式 */
+        li{list-style: none;}
+        .head{width: 1200px;
+            margin: auto;
+            color: #3c3d46;
+            font-size: 18px;}
+        .nav>li{float: left;
+            width: 80px;
+            height: 72px;
+            line-height: 72px; /* 讓行高等同li的大小，就會變成垂直置中 */
+            text-align: center; /* 字體對齊選擇水平置中 */
+            margin-right: 24px;
+        }
+        .logo{margin-top: 7px;} /* 讓logo往下降 */
+        .logo img{vertical-align: middle;} /* 讓圖片置中對齊 */
+        .home{background-color: #5696ff;margin-left: 159px;}
+        .user{line-height: 72px;}
+        .banner{height: 48px;background: url(img/banner.jpg) no-repeat center;padding-top: 552px;}
+        .switch{width: 54px;margin: auto;}  /* margin-top: 154px; 這樣子使用會使得margin塌陷*/
+        .circle1{width: 16px;height: 16px;border-radius: 50%;background-color: #fcfcfd;}
+        .circle2{width: 12px;height: 12px;border-radius: 50%;border: #fcfcfd 2px solid;}
+        .title .line{width: 78px; height: 6px; background-color: #666666;margin-top: 18px;}
+        .title h1{font-size: 36px;color: #5696ff;margin-left: 14px;}
+        .travel{width: 330px;margin: auto;margin-top: 60px;}
+        .travel .text{text-align: center;color: #666666;font-size: 22px;margin-top: 22px;}
+        .search{width: 350px;margin: auto;position: relative;margin-top: 70px;}
+        .search input{width: 350px;height: 40px;border: #666666 1px solid;border-radius: 5px;}
+        .search img{position: absolute;right: 13px;top: 8px;}
+        .pic_list{width: 1210px;margin: auto;margin-top: 55px;}  /* margin-top不能先寫，不然會被margin覆蓋 */
+        .pic{width: 119px;height: 373px;margin-right: 3px;}
+        .denmark{width: 596px;background: url(img/denmark.jpg) no-repeat center;}
+        .play{width: 76px;height: 76px;background: url(img/play.png) no-repeat center;margin-top: 16px;margin-left: 218px;}
+        .sichuan{background: url(img/sichuan.jpg) no-repeat center;}
+        .dali{background: url(img/dali.jpg) no-repeat center;}
+        .japan{background: url(img/japan.jpg) no-repeat center;}
+        .italy{background: url(img/italy.jpg) no-repeat center;}
+        .france{background: url(img/france.jpg) no-repeat center;}
+        .pic_list .shadow{background-color: rgba(51, 51, 51, 0.5);height: 303px;padding: 70px 0 0 30px;}  /* opacity是改透明度，但會影響子集的透明度 */
+        .pic_list .shadow p{font-size: 28px; color: #fbfcfd;line-height: 30px;}  /* 字與字之間的行距太大，要縮小只能改行距 */
+        .more{width: 160px;height: 54px;font-size: 26px;border: #5696ff 2px solid;border-radius: 5px;color: #5696ff;text-align: center;line-height: 54px;margin: auto;margin-top: 72px;}
+        .special{width: 326px;margin: auto;margin-top: 60px;}
+        .special .text{text-align: center;color: #666666;font-size: 22px;margin-top: 22px;}
+        .sp_list{width: 1200px;margin: auto;margin-top: 50px;}
+        /* .sp_left{margin-right: 8px;} 這邊刪掉，讓float right去自動靠右*/
+        /* .sp_right{width: 309px;}  這邊刪掉，讓子集去撐開寬度 */
+        .sp_left .up{width: 892px;margin-bottom: 8px;}
+        .sp_left .down{width: 892px;margin-top: 8px;}
+        .sp_right .jp{width: 300px;height: 472px;background: url(img/jp56.jpg) no-repeat center;margin-bottom: 8px;}
+        .sp_right .idian{width: 300px;height: 204px;background: url(img/id46.jpg) no-repeat center;}
+        .dm{width: 441px;height: 307px;background: url(img/denmark56.jpg) no-repeat center;margin-right: 8px;}
+        .viet{width: 442px;height: 286px;background: url(img/viet123.jpg) no-repeat center;padding-top: 21px;}
+        .tai{width: 362px; height: 369px; background: url(img/tai56.jpg) no-repeat center;margin-right: 8px;}
+        .mly{width: 521px;height: 369px;background: url(img/mly46.jpg) no-repeat center;}
+        .trip{font-size: 22px;color: white;position: relative;}
+        .trip p{position: absolute; left: 54px; top: 48px;}
+        .v_shadow{width: 400px;height: 185px;background-color: rgba(0, 0, 0, 0.3);margin: auto;border: white 4px solid;padding-top: 81px;}
+        .price2300{width: 320px; height: 25px;margin: auto;}
+        .vline{width: 90px;height: 4px;background-color: white;margin-top: 8px;}
+        .vprice2300{font-size: 26px;color: white;margin-left: 28px}
+        .more2{width: 160px;height: 54px;font-size: 26px;border: #5696ff 2px solid;border-radius: 5px;color: #ffffff;text-align: center;line-height: 54px;margin: auto;margin-top: 72px;background-color: #5696ff;}
+        .mexico_info{width: 1200px;height: 745px;background: url(img/news_bg.jpg) no-repeat center;margin: auto;margin-top: 227px;position: relative;}
+        .mexico_info img{border: #f3f3f3 41px solid;position: absolute;top: -176px;right: 0;}
+        .article{width: 1200px; margin: auto;margin-top: 50px;}
+        .rule .line{width: 132px;height: 7px;background-color: #666666;margin-left: auto;margin-bottom: 28px;}
+        .rule p{width: 561px;font-size: 24px;line-height: 48px;color: #333333;text-indent: 2em;}
+        .rule h3{text-align: right;font-size: 30px;color: #333333;font-weight: 500;}
+        .ar_tit{margin-left: 158px;}   /* 這個artit是浮動的元素，可以讓子集去撐開寬度，所以不必加高度 */
+        .full{width: 180px;height: 60px;font-size: 26px;border: #999 3px solid;border-radius: 5px;color: #333333;text-align: center;line-height: 60px;margin-right: auto;margin-top: 47px;}
+        /* 紐西蘭之後 */
+        .newzealand{width: 1200px;margin:auto;margin-top: 71px;}
+        .newz_L{width: 578px;height: 781px;background: url(img/newz_L.jpg) no-repeat center;}
+        .newz_title{margin-top: 50px;width: 240px;margin-left: 212px;} /* 子集非並排，所以要自己加上寬度，不然子集會超寬 */
+        .newz_line{width: 134px;height: 7px;background-color: #666666;margin-left: auto;margin-bottom: 31px;}
+        .newz_title p{text-align: right;font-size: 30px;color: #333333;font-weight: 500;}
+        .right_side{width: 554px;position: relative;padding-top: 590px;}
+        .newz_R{width: 626px;height: 470px;background: url(img/newz_R.jpg) no-repeat center;border: #f3f3f3 35px solid;position: absolute;right: 0;top: 64px;}
+        .right_side p{font-size: 24px;color: #333333;line-height: 56px;}
+        /* 遊記分享 */
+        .w1200{width: 1200px;margin: auto;}
+        .project{margin-top: 53px;}
+        .main_article{width: 730px;height: 962px;background: url(img/article_bg.jpg);box-shadow: #979797 0px 0px 20px 3px;}
+        .main_article .shadow{width: 410px;height: 898px;background: rgba(0, 0,0, 0.3);padding: 64px 55px 0 36px;}
+        .full2{width: 160px;height: 60px;font-size: 22px;border: #ffffff 2px solid;border-radius: 5px;color: #ffffff;text-align: center;line-height: 60px;margin-right: auto;margin-top: 130px;}
+        .article_list{width: 444px;height: 962px;}
+        .kawakope{padding: 34px 34px 28px 34px;box-shadow: #979797 0px 0px 20px 3px;}
+        .kawakope .date{color: #333333;font-size: 12px;margin: 7px 0 4px 0;}
+        .kawakope .tit{color: #333333;font-size: 14px;margin: 4px 0 4px 0;}
+        .kawakope .arti{color: #666666;font-size: 12px;}
+        .kawakope .full_arti{font-size: 12px;color: #5696ff;}
+        .kawa{width: 101px;height: 284px;padding: 13px 265px 0 9px;}
+        .kawa_0103{background: url(img/article_tai.jpg);}
+        .kawa_0415{background: url(img/article_kawa.jpg);}
+        .tag_kawa{width: 60px;height: 18px;background: #5696ff;text-align: center;line-height: 18px;color: white;font-size: 12px;}
+        .tag_sundown{width: 30px;height: 18px;background: #5696ff;text-align: center;line-height: 18px;color: white;font-size: 12px;}
+        /* 結尾照片 */
+        .photo{height: 474px;
+            width: 1164px;
+            box-shadow: #979797 0px 0px 20px 3px;
+            padding: 26px 18px 0 18px;
+            margin-top: 54px;
+            position: relative;
+            background-color: white;
+        }
+        .photo_tit{font-size: 24px;color: #5696ff;}
+        .photo_list{margin-top: 28px;}
+        .ph{margin-right: 19px;}
+        .photo_list .date,.photo_list .author,.photo_list p{color: #666666;font-size: 12px;}
+        .photo_list p{font-size: 18px;}
+        .photo_list .text{position: relative;margin-top: 18px;}
+        .photo_list .author{position: relative;left: 14px;top: 1px;}
+        .left_arr{width: 25px;height: 25px;background: url(img/left_arr.jpg) no-repeat center;border: white 25px solid;position: absolute;left: 18px;top: 218px;}
+        .right_arr{width: 24px;height: 24px;background: url(img/right_arr.jpg) no-repeat center;border: white 26px solid;position: absolute;top: 218px;right: 18px;}
+        .endding{background-color: #5696ff}
+        .license{width: 651px;height: 102px;margin: auto;font-size: 16px;color: #fafafc;text-align: left;line-height: 35px;padding-top: 28px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 頭部導航 -->
+        <div class="head">
+            <div class="logo fl">
+                <img src="img/logo.png">
+                <img src="img/brand.png">
+            </div>
+            <ul class="nav fl">
+                <li class="home" style="color: white;">首頁</li>
+                <li>地區</li>
+                <li>特惠</li>
+                <li>資訊</li>
+                <li>遊記</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="user fr"> <!-- 不想算margin float -->
+                <span>登入</span>
+                <span> | </span>
+                <span>註冊</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 橫幅 -->
+        <div class="banner">
+            <div class="switch">
+                <div class="circle1 fl cir"></div>
+                <div class="circle2 fr cir"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 搜索框 -->
+        <div class="search">
+            <input type="text">
+            <img src="img/search_icon.png" alt="搜索框">
+        </div>
+        <!-- 地區旅遊 -->
+        <div class="travel">
+            <div class="title">
+                <div class="line fl"></div>
+                <h1 class="fl">地區旅遊 </h1>   <!-- 這邊這個地區旅遊沒辦法再用text-align:center，因為已經浮動靠左 -->
+                <div class="line fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="text">
+                <p>從這開始有意思的地區文化</p>
+            </div>
+        </div>
+        <!-- 圖片列表 -->
+        <div class="pic_list">
+            <div class="pic fl sichuan">
+                <div class="shadow">
+                    <p>四<br>川</p>
+                </div>
+            </div>
+            <div class="pic fl dali">
+                <div class="shadow">
+                    <p>大<br>里</p>
+                </div>
+            </div>
+            <div class="pic denmark fl">
+                <div class="shadow">
+                    <p>丹<br>麥</p>
+                    <div class="play"></div>  <!-- 自己用margin擠到中間去 -->
+                </div>
+            </div>
+            <div class="pic fl japan">
+                <div class="shadow">
+                    <p>日<br>本</p>
+                </div>
+            </div>
+            <div class="pic fl italy">
+                <div class="shadow">
+                    <p>義<br>大<br>利</p>
+                </div>
+            </div>
+            <div class="pic fl france">
+                <div class="shadow">
+                    <p>法<br>國</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- more按鈕 -->
+        <div class="more">More></div>  <!-- button和input一樣，不是塊，有沒有功能和標籤的名稱無關，只和JS有關 -->
+        <!-- 特惠行程 -->
+        <div class="travel">
+            <div class="title">
+                <div class="line fl"></div>
+                <h1 class="fl">特惠行程 </h1>   <!-- 這邊這個地區旅遊沒辦法再用text-align:center，因為已經浮動靠左 -->
+                <div class="line fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="text">
+                <p>給你帶來最省錢的旅遊</p>
+            </div>
+        </div>
+        <!-- 圖片列表2 -->
+        <div class="sp_list">
+            <div class="sp_left fl">
+                <div class="up">
+                    <div class="dm trip fl">
+                        <p>丹麥6天5夜童話之旅</p>
+                    </div>
+                    <div class="viet trip fr">
+                        <div class="v_shadow">
+                            <div class="v123">
+                                <p>越南12晚3天美妙之旅</p>
+                            </div>
+                            <div class="price2300">
+                                <div class="vline fl"></div>
+                                <h1 class="vprice2300 fl">￥2300</h1>
+                                <div class="vline fr"></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="down">
+                    <div class="tai trip fl">
+                        <p>泰國6天5夜遊</p>
+                    </div>
+                    <div class="mly trip fr">
+                        <p>馬來西亞6天4夜經典遊</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="sp_right fr">
+                <div class="jp trip">
+                    <p>日本6天5夜全景遊</p>
+                </div>
+                <div class="idian trip">
+                    <p>印度6天4夜經典遊</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 按鈕2 -->
+        <div class="more2">More></div>
+        <!-- 旅遊資訊 -->
+        <div class="travel">
+            <div class="title">
+                <div class="line fl"></div>
+                <h1 class="fl">旅遊資訊 </h1>   <!-- 這邊這個地區旅遊沒辦法再用text-align:center，因為已經浮動靠左 -->
+                <div class="line fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="text">
+                <p>各種奇妙有趣的新聞等你來發現哦</p>
+            </div>
+        </div>
+        <!-- 墨西哥入境 -->
+        <div class="mexico_info">
+            <img src="img/pic.jpg">
+        </div>
+        <div class="article">
+            <div class="rule">
+                <div class="fl ar_tit">
+                    <div class="line"></div>
+                    <h3>墨西哥關於<br>外國公民入境的有關規定</h3>
+                </div>
+                <div class="fr">
+                    <p style="text-indent: 0em;">墨西哥對外國公民入境有嚴格的規定。 為便於中國公民準備入境資料，駐墨西哥使館將墨移民局提供的部分規定摘譯整理如下，供來墨人員參考（以下規定最終解釋權屬墨方相關部門）：</p>
+                    <p>一、墨西哥《移民法》規定，外國公民入境墨西哥應符合以下要求：</p>
+                    <p>1、向墨西哥移民官員出示以下證件：</p>
+                    <p>（1）護照或現行國際法認可有效的身份及旅行證件；</p>
+                    <p>（2）合法有效簽證（如需）......</p>
+                    <div class="full">完整文章</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 紐西藍遊客稅 -->
+        <div class="newzealand">
+            <div class="fl">
+                <div class="newz_L"></div>
+                <div class="newz_title">
+                    <div class="newz_line"></div>
+                    <p>紐西蘭<br>明年準備徵遊客稅</p>
+                </div>
+            </div>
+            <div class="fr right_side">
+                <div class="newz_R"></div>
+                <p>據消息稱,紐西蘭旅遊部長表示,紐西蘭明年(2018年)將會引進遊客稅。</p>
+                <p>相關部門不希望紐西蘭旅遊勝地的美譽受到影響，需要採取措施來幫助當地議會來應對越來越多的遊客。</p>
+                <p>Destination Queenstown表示,若是當地部門不採取措施來應對巨大的遊客數量,皇后鎮可能會像威尼斯和巴塞隆納一樣,造成旅遊業過度開發。</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- more -->
+        <div class="more">More></div>
+        <!-- 遊記分享 -->
+        <div class="travel">
+            <div class="title">
+                <div class="line fl"></div>
+                <h1 class="fl">遊記分享 </h1>   <!-- 這邊這個地區旅遊沒辦法再用text-align:center，因為已經浮動靠左 -->
+                <div class="line fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="text">
+                <p>在這可以找到最好的旅遊攻略</p>
+            </div>
+        </div>
+        <!-- project -->
+        <div class="w1200 project">
+            <div class="main_article fl">
+                <div class="shadow">
+                    <p style="color: #5696ff; font-size: 24px;margin-bottom: 77px;">精選文章</p>
+                    <p style="color: #fefefe; font-size: 24px;">大理與陽光約會</p>
+                    <p style="color: #ffffff; font-size: 20px;">
+                        雲南&nbsp;&nbsp;|&nbsp;&nbsp;大理&nbsp;&nbsp;|&nbsp;&nbsp;洱海
+                    </p>
+                    <p style="color: #ffffff; font-size: 18px;text-align: right;">2017年1月13日</p>
+                    <p style="color: #ffffff; font-size: 18px; line-height: 48px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;寒假開始，我便踏上了開往雲南的列車。武漢的冬天基本上是陰暗濕冷的，我多想趕快到達雲南，擁抱溫暖的陽光。
+                    </p>
+                    <p style="color: #ffffff; font-size: 18px; line-height: 48px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;十幾天裡，我在海埂長堤上喂過海鷗，在洱海沿線畫了一個圈，在雙廊享受面朝大海春暖花開的愜意，在麗江的阿安優酪乳和前臺的山東老鄉曬太陽聊天，在虎跳峽和棒子們你追我趕。曾經嫌棄過大理的冷清，也曾經抱怨過麗江的物質。但是，當真正要離開的時候，滿滿的都是不捨...
+                    </p>
+                    <div class="full2">完整文章</div>
+                </div>
+            </div>
+            <div class="article_list fr">
+                <div class="kawakope">
+                    <div class="kawa_0103 kawa">
+                        <div class="fl tag_kawa">卡瓦博格</div>
+                        <div class="fr tag_sundown">黃昏</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p class="date">2017.01.03</p>
+                    <p class="tit">泰國ー活著的衝動，浮生一場春夢</p>
+                    <span class="arti">上世紀80年代，我的父母青春年少之時，生於小城鎮的他們還穿著母親親手裁制的衣褲，過著糧票兌糧，精打細算的生活 當時的崔健還未成名，收音機裡放的還是鄧麗君、山口百惠.... 而此時的大...</span>
+                    <span class="full_arti">完整文章>></span>
+                </div>
+                <div class="kawakope" style="margin-top: 32px;">
+                    <div class="kawa_0415 kawa">
+                        <div class="fl tag_kawa">卡瓦博格</div>
+                        <div class="fr tag_sundown">黃昏</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p class="date">2017.04.15</p>
+                    <p class="tit">初見卡瓦博格</p>
+                    <span class="arti">飛來寺，斗轉星移間，我們守望6740的日照金山。當一縷縷金色的光線，灑滿卡瓦格博的峰尖，就在那一瞬間，我掙脫了重重桎梏，捨卻了依依舊念，只為那遊蕩不安的心魂，從此越發瘋癲...</span>
+                    <span class="full_arti">完整文章>></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 精選照片 -->
+        <div class="w1200 photo">
+            <div class="photo_tit">
+                <span>精選照片</span>
+            </div>
+            <div class="photo_list">
+                <div class="fl">
+                    <div class="ph">
+                        <img src="img/spic1.jpg">
+                    </div>
+                    <div class="text">
+                        <span class="date">2017.03.06</span>
+                        <span class="author">by Ben</span>
+                        <p>深入賀藍山</p>
+                    </div>
+                </div>
+                <div class="fl">
+                    <div class="ph">
+                        <img src="img/spic2.jpg">
+                    </div>
+                    <div class="text">
+                        <span class="date">2017.07.04</span>
+                        <span class="author">by Ever</span>
+                        <p>雪融山</p>
+                    </div>
+                </div>
+                <div class="fl">
+                    <div class="ph">
+                        <img src="img/spic3.jpg">
+                    </div>
+                    <div class="text">
+                        <span class="date">2017.07.04</span>
+                        <span class="author">by Wendy</span>
+                        <p>金色的雪山</p>
+                    </div>
+                </div>
+                <div class="fr">
+                    <div class="ph" style="margin-right: 0;">
+                        <img src="img/spic4.jpg">
+                    </div>
+                    <div class="text">
+                        <span class="date">2017.10.11</span>
+                        <span class="author">by Jay</span>
+                        <p>黃昏與海</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="arrow">
+                <div class="left_arr"></div>
+                <div class="right_arr"></div>
+            </div>
+        </div>
+        
+        <!-- more -->
+        <div class="more" style="margin-top: 100px;">More></div>
+        <!-- ending -->
+        <div class="endding" style="margin-top: 66px;">
+            <div class="license">
+                <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证123456号</p>
+                <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

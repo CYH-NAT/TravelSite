@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>資訊部分</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        body{background-color: #f3f3f3;}
+        .cl::after{display: block;clear: both;height: 0;content: "";}
+        /* 去除li的樣式 */
+        li{list-style: none;}
+        .w1200{width: 1200px;margin: auto;}
+        .head{
+            color: #3c3d46;
+            font-size: 18px;}
+        .nav>li{float: left;
+            width: 80px;
+            height: 72px;
+            line-height: 72px; /* 讓行高等同li的大小，就會變成垂直置中 */
+            text-align: center; /* 字體對齊選擇水平置中 */
+            margin-right: 24px;
+        }
+        .logo{margin-top: 7px;} /* 讓logo往下降 */
+        .logo img{vertical-align: middle;} /* 讓圖片置中對齊 */
+        .user{line-height: 72px;}
+        .home{margin-left: 159px;}
+        .info{background-color: #5696ff;}
+        .tool{height: 41px;background-color: #535353;border:#dcdcdc 1px solid;padding-top: 19px;}
+        .vertical-line{width: 1px;height: 20px;background-color: #f3f1f1;}
+        .head2 .search_icon{width: 102px;}
+        .head2 .oth_icon{width: 302px;}
+        .s_icon{width: 22px;height: 22px;background: url(img/search_icon2.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .h_icon{width: 22px;height: 22px;background: url(img/history_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .r_icon{width: 22px;height: 22px;background: url(img/review_icon.png) no-repeat center;margin-left: 41px;margin-right: 37px;}
+        .p_icon{width: 22px;height: 22px;background: url(img/personal_icon.png) no-repeat center;margin-left: 41px;}
+        /*  */
+        .all{margin-top: 54px;}
+        /*橫幅*/
+        .banner{margin-top: 46px;}
+        .banner_bg{width: 778px;height: 350px;background: url(img/banner.png);}
+        .headline{width: 422px;height: 350px;background-color: white;padding: 35px 0 34px 22px;box-sizing: border-box;color: #333;font-size: 19.99px;line-height: 34.6px;display: flex;flex-flow: column nowrap;justify-content: space-between;}
+        .headline p{width: 354px;}
+        .dot{width: 12px;height: 12px;border-radius: 6px;background-color: #fe5308;margin: 10px 10px 0 0;}
+        .headline .line{width: 348;height: 1px;background-color: #e8e7e7;}
+        /* 主要部份 */
+        .info_list{width: 871px;height: 1290px;display: flex;flex-flow: row wrap;justify-content: space-between;align-content: space-between;}
+        .info_frame{width: 420px;height: 408px}
+        .big_pic{width: 420px;height: 253px;padding: 16px 0 0 18px;box-sizing: border-box;}
+        .date_mark{width: 58px;height: 64px;background-color: #5696ff;font-size: 18px;color: white;text-align: center;padding-top: 12px;box-sizing: border-box;}
+        .info_frame .tit{font-size: 20px;color: #222;margin-top: 20px;}
+        .sub_text{margin-top: 14px;}
+        .by,.location{font-size: 16px;color: #5696ff;}
+        .location{margin-left: 34px;}
+        .list_line{height: 1px;background-color: #eaeaea;margin: 19px 0 14px 0;}
+        .from,.arti{font-size: 16px;color: #666;}
+        /* 換頁欄 */
+        .page{display: flex;flex-flow: row nowrap;justify-content: space-between;}
+        .page li{width: 1em;color: #666;font-size: 18px;line-height: 59px;text-align: center;}
+        .pre,.nxt{width: 198px !important;color: #333 !important;border: #dcdcdc 1px solid;margin:0 !important}
+        /* 右側 */
+        .r_part .title{font-size: 24px;color:#2e2e2e;}
+        .r_part{width: 270px;}
+        .right_line{width: 56px;height: 3px;background-color: #5696ff;margin: 19px 0 26px 0;}
+        .news_list{width: 272px;height: 317px;display: flex;flex-flow: column nowrap;justify-content: space-between;}
+        .news{width: 182px;margin-left: 19px;}
+        .news .date{font-size: 15px;color: #5696ff;}
+        .news .text{font-size: 14px;color: #222;margin-top: 6px;}
+        .s_pic{width: 70px;height: 62px;}
+        /* 熱門標籤 */
+        .tag_list{width: 270px;height: 126px;display: flex;flex-flow: row wrap;justify-content: space-between;align-content: space-between;}
+        .tag_list div{color: #a1a1a1;font-size: 16px;height: 38px;line-height: 38px;text-align: center;border: #d7d7d7 0.83px solid;}
+        /* 頁尾部份 */
+        .endding{background-color: #5696ff}
+        .license{width: 651px;height: 102px;margin: auto;font-size: 16px;color: #fafafc;text-align: left;line-height: 35px;padding-top: 28px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 頭部導航 -->
+        <div class="head w1200">
+            <div class="logo fl">
+                <img src="img/logo.png">
+                <img src="img/brand.png">
+            </div>
+            <ul class="nav fl">
+                <li class="home">首頁</li>
+                <li class="area">地區</li>
+                <li class="discount" >特惠</li>
+                <li class="info" style="color: white;">資訊</li>
+                <li class="diary">遊記 </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="user fr"> <!-- 不想算margin float -->
+                <span>登入</span>
+                <span> | </span>
+                <span>註冊</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 工具列 -->
+        <div class="tool">
+            <div class="head2 w1200">
+                <div class="search_icon fl">
+                    <div class="vertical-line fl"></div>
+                    <div class="s_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="oth_icon fr">
+                    <div class="vertical-line fl"></div>
+                    <div class="h_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="r_icon fl"></div>
+                    <div class="vertical-line fl"></div>
+                    <div class="p_icon fl"></div>
+                    <div class="vertical-line fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 橫幅 -->
+        <div class="banner w1200 cl">
+            <div class="fl banner_bg"></div>
+            <div class="fr headline">
+                <div class="cl">
+                    <div class="fl dot"></div>
+                    <p class="fl text">歐盟提出申根簽證改革方案 將簡化申請手續提高簽證費</p>
+                </div>
+                <div class="line"></div>
+                <div class="cl">
+                    <div class="fl dot"></div>
+                    <p class="fl text">新加坡樟宜機場離境乘客7月起須額外支付63.5元</p>
+                </div>
+                <div class="line"></div>
+                <div class="cl">
+                    <div class="fl dot"></div>
+                    <p class="fl text">2018 HCFR國際越野跑挑戰賽·詩畫浦江站在京啟動</p>
+                </div>
+            </div>
+        </div>
+        <!-- 主體 -->
+        <div class="main w1200 cl" style="margin-top: 86px;">
+            <div class="fl l_part">
+                <div class="info_list">
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/canada.jpg);">
+                            <div class="date_mark">
+                                <p>15</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">最新！加拿大留學簽證申請大變動：從六個類..</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">悠遊旅遊網</span><span class="location">[加拿大]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">隨著加拿大不斷放寬移民簽證政策，選擇前往加拿大求學的中國留學生也越來越多。目前正值留學申請季的關鍵階...</p>
+                    </div>
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/newz-i.jpg);">
+                            <div class="date_mark">
+                                <p>15</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">紐西蘭簽證遞交方式巨大變更 不再接受自行..</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">海外網</span><span class="location">[紐西蘭]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">據紐西蘭移民局(INZ)在10月30日發布的內部消息稱，移民局惠靈頓辦事處將於11月17日起，永久停止對外辦公..</p>
+                    </div>
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/aust.jpg);">
+                            <div class="date_mark">
+                                <p>14</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">澳大利亞簽證申請者太多 南澳將關閉部份簽...</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">中國華僑網</span><span class="location">[澳大利亞]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">3月14日電 據澳洲網編譯報導，澳大利亞移民問題一直是最具爭議的議題之一，澳大利亞人口研究所最新公布一份...</p>
+                    </div>
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/tai-i.jpg);">
+                            <div class="date_mark">
+                                <p>13</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">華媒：泰國喃邦政府發現"大峽谷"或將開發...</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">中新網</span><span class="location">[泰國]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">3月13日電 泰國《世界日報》刊發文章稱，泰國喃邦政府深岩縣發現了一處新的土柱形成區域，完全具備開發成新景...</p>
+                    </div>
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/2018.jpg);">
+                            <div class="date_mark">
+                                <p>13</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">外聯出國：2018財年簽證配額已用完？移民...</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">中國網</span><span class="location">[美國]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">今天(3月13日)早上，很多人被美國國家簽證中心NVC網站上的更新排期表嚇了一跳，因為EB-1美國傑出人才移民...</p>
+                    </div>
+                    <div class="info_frame">
+                        <div class="big_pic" style="background: url(img/2050.jpg);">
+                            <div class="date_mark">
+                                <p>13</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <p class="tit">死海可能2050年乾涸</p>
+                        <div class="sub_text">
+                            <span class="by">by </span><span class="from">廣州日報</span><span class="location">[北京]</span>
+                        </div>
+                        <div class="list_line"></div>
+                        <p class="arti">死海，全球海拔最低湖泊，大自然賜予神奇浮力，促成“死海不死”神奇，再加豐富礦物質，吸引世界各地遊客...</p>
+                    </div>
+                </div>
+                <ul class="page" style="margin-top: 86px;">
+                    <li class="pre"><上一頁</li>
+                    <li>1</li>
+                    <li style="color: #5696ff;">2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>...</li>
+                    <li>30</li>
+                    <li class="nxt"><下一頁</li>
+                </ul>
+            </div>
+            <div class="fr r_part">
+                <div class="industry_news">
+                    <p class="title">行業動態</p>
+                    <div class="right_line"></div>
+                    <div class="news_list">
+                        <div class="news_frame cl">
+                            <div class="s_pic fl" style="background: url(img/pic1.jpg)"></div>
+                            <div class="news fl">
+                                <p class="date">2018.02.27</p>
+                                <p class="text">《南京市旅遊條例》3月1日<br>正式實施</p>
+                            </div>
+                        </div>
+                        <div class="news_frame cl">
+                            <div class="s_pic fl" style="background: url(img/pic2.jpg)"></div>
+                            <div class="news fl">
+                                <p class="date">2017.08.07</p>
+                                <p class="text">《廣東省旅遊條例》11月1日<br>施行，通過社交平台组團...</p>
+                            </div>
+                        </div>
+                        <div class="news_frame cl">
+                            <div class="s_pic fl" style="background: url(img/pic3.jpg)"></div>
+                            <div class="news fl">
+                                <p class="date">2017.08.02</p>
+                                <p class="text">去夏威夷的同學注意了！過馬<br>路玩手機？罰款！</p>
+                            </div>
+                        </div>
+                        <div class="news_frame cl">
+                            <div class="s_pic fl" style="background: url(img/pic4.jpg)"></div>
+                            <div class="news fl">
+                                <p class="date">2017.08.02</p>
+                                <p class="text">八月起這批新規來到：北京整<br>頓規範旅遊市場</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot_tag" style="margin-top: 32px;">
+                    <p class="title">熱門標籤</p>
+                    <div class="right_line"></div>
+                    <div class="tag_list">
+                        <div style="width: 140px; background-color: #5696ff; color: white;border: none;">簽證</div>
+                        <div style="width: 120px;">德國</div>
+                        <div style="width: 120px;">日本</div>
+                        <div style="width: 139px;">飛機票</div>
+                        <div style="width: 79px;">簽證</div>
+                        <div style="width: 89px;">政策</div>
+                        <div style="width: 84px;">交通</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ending -->
+        <div class="endding" style="margin-top: 100px;">
+            <div class="license">
+                <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证123456号</p>
+                <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
